@@ -1,0 +1,577 @@
+@charset "UTF-8";
+/* 1-setting */
+/*
+#Variables color
+
+@color-default #333
+@color-base #f7f7f7
+@color-border #ccc
+
+@color-main #825794
+@color-sub #ffbb4d
+@color-caution #e74c3c
+
+@color-facebook #305097
+@color-twitter #00aced
+@color-line #00c300
+@color-instagram #325C86
+*/
+/* Variables except color */
+/* Variables font */
+/* 2-mixin */
+/* 3-base */
+body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; line-height: 1; word-break: break-all; }
+
+div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, summary, time, mark, audio, video, input, textarea { margin: 0; padding: 0; border: 0; font-size: 100%; font-weight: normal; font-style: normal; vertical-align: baseline; background: transparent; }
+
+img { vertical-align: bottom; }
+
+main, article, aside, details, figcaption, figure, footer, header, menu, nav, section, div, address, iframe, canvas, hr, textarea { display: block; }
+
+iframe { max-width: 100% !important; }
+
+img, embed, object, video { max-width: 100%; }
+
+a, label { cursor: pointer; }
+
+blockquote { padding: 0; margin: 0; display: block; }
+
+address, em { font-style: normal; }
+
+hr { border: 0; margin: 0; padding: 0; }
+
+ul, ol, li { list-style: none; }
+
+textarea { resize: vertical; overflow: hidden; -webkit-appearance: none; border: 0; }
+
+input, button, select { vertical-align: middle; border-radius: 0; border: 0; background: transparent; margin: 0; padding: 0; cursor: pointer; -webkit-appearance: none; }
+
+table { border-collapse: collapse; }
+
+*:before, *:after { padding: 0; margin: 0; line-height: 1; }
+
+* { box-sizing: border-box; }
+
+br { font-size: 0; }
+
+::-moz-selection { background: #ccc; color: #fff; }
+
+::selection { background: #ccc; color: #fff; }
+
+input::-moz-selection, textarea::-moz-selection { color: #333; }
+
+input::selection, textarea::selection { color: #333; }
+
+html { font-size: 62.5%; min-height: 100%; /* width: 100%; */ }
+
+body { font-size: 16px; line-height: 1.6; font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; background: #fff; color: #333; width: 100%; letter-spacing: 0.02em; }
+
+input, button, select, textarea { font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
+
+input:focus, button:focus, select:focus, textarea:focus, a:focus, div:focus, aside:focus { outline: none; }
+
+a { color: #ccc; text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+
+.for-no-js, .for-old { text-align: center; width: 100%; background: #000; color: #fff; height: 40px; line-height: 40px; z-index: 11; }
+
+.for-old { display: none; }
+
+.lt-ie9 .for-old { display: block; }
+
+/* 4-layout */
+.l-container { width: 100%; padding: 0 20px; margin: 0 auto; position: relative; }
+
+.l-footer { padding: 10px; position: relative; margin-top: 15px; }
+
+.l-footer-button { position: absolute; top: 0; right: 10px; }
+
+.l-footer-copyright { text-align: center; }
+
+.l-header { width: 100%; position: fixed; z-index: 2; -webkit-transition: ease-in-out; transition: ease-in-out; }
+
+.l-header-top { padding: 20px; background-color: #fff; }
+
+.l-header-logo { float: left; }
+
+.l-header-hamburger { float: right; }
+
+.l-header-text { float: right; }
+
+.l-header-text p { display: inline-block; color: #fff; font-size: 10px; vertical-align: bottom; }
+
+.l-header-admin .l-header-top { background-color: #333; }
+
+.l-main { width: 100%; }
+
+.l-main-block { display: block; width: 100%; height: 71px; }
+
+.l-main-button { margin-top: 30px; display: block; }
+
+.l-main.is-lock { position: fixed; }
+
+.l-sidebar { float: right; width: 300px; }
+
+.l-sidebar-item { margin-bottom: 20px; }
+
+.l-sidebar-item:last-child { margin-bottom: 0; }
+
+.l-grid { text-align: left; /* Break point large */ /* Break point medium */ /* Break point small */ }
+
+.l-grid .l-grid-inner { font-size: 0; letter-spacing: 0; }
+
+.l-grid .l-grid-item { display: inline-block; vertical-align: top; font-size: 16px; }
+
+.l-grid.l-grid-col2 .l-grid-item { width: 50%; }
+
+.android .l-grid.l-grid-col2 .l-grid-item { width: 49.99999%; }
+
+.l-grid.l-grid-col3 .l-grid-item { width: 33.3333%; }
+
+.l-grid.l-grid-col4 .l-grid-item { width: 25%; }
+
+.android .l-grid.l-grid-col4 .l-grid-item { width: 24.99999%; }
+
+.l-grid.l-grid-col5 .l-grid-item { width: 20%; }
+
+.android .l-grid.l-grid-col5 .l-grid-item { width: 19.99999%; }
+
+.l-grid.l-grid-col6 .l-grid-item { width: 16.6666%; }
+
+@media all and (max-width: 1024px) { .l-grid.l-grid-lg-col1 .l-grid-item { width: 100%; }
+  .l-grid.l-grid-lg-col2 .l-grid-item { width: 50%; }
+  .android .l-grid.l-grid-lg-col2 .l-grid-item { width: 49.99999%; }
+  .l-grid.l-grid-lg-col3 .l-grid-item { width: 33.3333%; }
+  .l-grid.l-grid-lg-col4 .l-grid-item { width: 25%; }
+  .android .l-grid.l-grid-lg-col4 .l-grid-item { width: 24.99999%; }
+  .l-grid.l-grid-lg-col5 .l-grid-item { width: 20%; }
+  .android .l-grid.l-grid-lg-col5 .l-grid-item { width: 19.99999%; }
+  .l-grid.l-grid-lg-col6 .l-grid-item { width: 16.6666%; } }
+
+@media all and (max-width: 780px) { .l-grid.l-grid-md-col1 .l-grid-item { width: 100%; }
+  .l-grid.l-grid-md-col2 .l-grid-item { width: 50%; }
+  .android .l-grid.l-grid-md-col2 .l-grid-item { width: 49.99999%; }
+  .l-grid.l-grid-md-col3 .l-grid-item { width: 33.3333%; }
+  .l-grid.l-grid-md-col4 .l-grid-item { width: 25%; }
+  .android .l-grid.l-grid-md-col4 .l-grid-item { width: 24.99999%; }
+  .l-grid.l-grid-md-col5 .l-grid-item { width: 20%; }
+  .android .l-grid.l-grid-md-col5 .l-grid-item { width: 19.99999%; }
+  .l-grid.l-grid-md-col6 .l-grid-item { width: 16.6666%; } }
+
+@media all and (max-width: 480px) { .l-grid.l-grid-sm-col1 .l-grid-item { width: 100%; }
+  .l-grid.l-grid-sm-col2 .l-grid-item { width: 50%; }
+  .android .l-grid.l-grid-sm-col2 .l-grid-item { width: 49.99999%; }
+  .l-grid.l-grid-sm-col3 .l-grid-item { width: 33.3333%; }
+  .l-grid.l-grid-sm-col4 .l-grid-item { width: 25%; }
+  .android .l-grid.l-grid-sm-col4 .l-grid-item { width: 24.99999%; }
+  .l-grid.l-grid-sm-col5 .l-grid-item { width: 20%; }
+  .android .l-grid.l-grid-sm-col5 .l-grid-item { width: 19.99999%; }
+  .l-grid.l-grid-sm-col6 .l-grid-item { width: 16.6666%; } }
+
+.l-index-list > li { padding-bottom: 20px; border-bottom: 1px solid #efefef; margin-bottom: 20px; }
+
+.l-index-list > li:last-child { padding-bottom: 0; border-bottom: 0; margin-bottom: 0; }
+
+.l-index-button { margin-top: 40px; text-align: center; }
+
+/* 5-module */
+/*
+iconfont
+
+iconfont is web font icons by icomoon.
+icomoon is the web app that you can create high quality icons as web fonts.
+https://icomoon.io/
+*/
+@font-face { font-family: 'icomoon'; src: url(../lib/fonts/icomoon.eot?kyvxpq); src: url(../lib/fonts/icomoon.eot?kyvxpq#iefix) format("embedded-opentype"), url(../lib/fonts/icomoon.ttf?kyvxpq) format("truetype"), url(../lib/fonts/icomoon.woff?kyvxpq) format("woff"), url(../lib/fonts/icomoon.svg?kyvxpq#icomoon) format("svg"); font-weight: normal; font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] { /* use !important to prevent issues with browser extensions that change fonts */ font-family: 'icomoon' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; /* Better Font Rendering =========== */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.icon-home:before { content: "\e900"; }
+
+.icon-clock:before { content: "\e94e"; }
+
+.icon-search:before { content: "\e986"; }
+
+/*
+#styleguide
+sprite-sns-2x
+
+```
+<i class="sprite-sns-2x sprite-sns-facebook"></i>
+<i class="sprite-sns-2x sprite-sns-instagram"></i>
+<i class="sprite-sns-2x sprite-sns-twitter"></i>
+```
+*/
+.sprite-sns-2x.sprite-sns-facebook { display: inline-block; overflow: hidden; text-indent: 120%; white-space: nowrap; background-image: url(../images/sprite-sns-2x.png); background-repeat: no-repeat; background-position: 0px 0px; width: 130px; height: 127px; background-size: 263px 257px; }
+
+.sprite-sns-2x.sprite-sns-instagram { display: inline-block; overflow: hidden; text-indent: 120%; white-space: nowrap; background-image: url(../images/sprite-sns-2x.png); background-repeat: no-repeat; background-position: -133px 0px; width: 130px; height: 127px; background-size: 263px 257px; }
+
+.sprite-sns-2x.sprite-sns-twitter { display: inline-block; overflow: hidden; text-indent: 120%; white-space: nowrap; background-image: url(../images/sprite-sns-2x.png); background-repeat: no-repeat; background-position: 0px -130px; width: 130px; height: 127px; background-size: 263px 257px; }
+
+/*
+#overview
+logo
+*/
+/* #styleguide logo ``` <a class="logo" href="./"> <img src="../../pc/images/logo.png" width="253" height="52" alt="LIG inc."/> </a> ``` */
+.logo { display: block; width: 137px; height: 28px; }
+
+/*
+#overview
+media
+*/
+/* #styleguide media style comment. ``` <article class="media"> <a class="media-link u-clear" href=""> <div class="media-thumbnail"> <img src="http://placekitten.com/200/120" height="120" width="200" alt=""> </div> <div class="media-body"> <time class="media-date" datetime="yyyy-mm-ddT00:00+09:00"> <i class="media-icon icon icon-clock"></i>mm/dd </time> <h1 class="media-heading">Title</h1> <p class="media-description">Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text...</p> </div> </a> </article> ``` */
+.media-link { display: block; color: #333; background-color: #fff; padding: 20px; }
+
+.media-link:hover { text-decoration: none; }
+
+.media-link:hover .media-thumbnail > img { -webkit-transform: scale(1.2); -ms-transform: scale(1.2); transform: scale(1.2); }
+
+.media-thumbnail { float: left; overflow: hidden; }
+
+.media-thumbnail > img { -webkit-transition: -webkit-transform 0.25s ease-in-out; transition: -webkit-transform 0.25s ease-in-out; transition: transform 0.25s ease-in-out; transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out; }
+
+.media-body { position: relative; margin-left: 220px; }
+
+.media-heading { padding-right: 70px; font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+
+.media-date { position: absolute; right: 0; top: 0; }
+
+.media-icon { position: relative; top: 1px; margin-right: 5px; }
+
+.media-description { font-size: 18px; }
+
+/*
+#overview
+sns
+*/
+/* #styleguide sns ``` <div class="sns l-grid"> <ul class="sns-list l-grid-inner"> <li class="sns-item l-grid-item"> <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div> </li> <li class="sns-item l-grid-item"> <a href="https://twitter.com/share" class="twitter-share-button" data-via="LIG_J" data-lang="ja" data-size="large" data-count="vertical">ツイート</a> </li> <li class="sns-item l-grid-item"> <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script> </li> <li class="sns-item l-grid-item"> <a data-pocket-label="pocket" data-pocket-count="vertical" class="pocket-btn" data-lang="en"></a><script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script> </li> <li class="sns-item l-grid-item"> <span><script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script><script type="text/javascript">new media_line_me.LineButton({"pc":false,"lang":"ja","type":"e"});</script></span> </li> </ul> </div> ``` */
+.sns { text-align: center; }
+
+.sns-inner { margin: -5px; }
+
+.sns-item { vertical-align: bottom; padding: 5px; }
+
+.nav { background-color: #fff; width: 100%; height: calc(100vh - 71px); -webkit-transform: translateX(100%); -ms-transform: translateX(100%); transform: translateX(100%); -webkit-transition: 0.25s ease-in-out; transition: 0.25s ease-in-out; position: fixed; z-index: 1; margin-top: 71px; }
+
+.nav-list { padding-top: 70px; }
+
+.nav-item { text-align: center; margin-top: 12px; }
+
+.nav-link { font-size: 30px; font-weight: bold; color: black; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; }
+
+.nav.is-active { -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0); }
+
+.button { width: 100%; background-color: #333; display: block; }
+
+.button-text { color: #fff; padding: 5px; text-align: center; font-size: 20px; font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; letter-spacing: 0.1em; font-weight: bold; }
+
+/*
+#overview
+banner
+*/
+/* #styleguide banner ``` <a class="banner" href=""> <img src="http://placekitten.com/300/250" height="250" width="300" alt=""> </a> */
+.banner { display: block; }
+
+.page-top { display: block; width: 50px; height: 50px; background-color: #333; position: relative; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+
+.page-top-arrow { display: block; border-top: 2px solid #fff; border-left: 2px solid #fff; height: 12px; width: 12px; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+/*
+#overview
+headline
+*/
+/*
+#styleguide
+headline
+```
+<h1 class="headline">Headline</h1>
+*/
+.headline, .single-body h2 { font-size: 30px; font-weight: bold; padding-bottom: 5px; border-bottom: 2px solid #000; }
+
+.headline-mb { margin-bottom: 20px; }
+
+.single-header-category { margin-bottom: 10px; }
+
+.single-header-eyecatch { min-height: 400px; position: relative; }
+
+.single-header-eyecatch > img { width: 100%; height: auto; }
+
+.single-header-meta { display: table; width: 100%; table-layout: fixed; margin-bottom: 20px; }
+
+.single-header-author { display: table-cell; vertical-align: middle; }
+
+.single-header-author > img { vertical-align: middle; border-radius: 50%; margin-right: 10px; }
+
+.single-header-author > span { vertical-align: middle; font-size: 15px; }
+
+.single-header-date { display: table-cell; vertical-align: middle; text-align: right; }
+
+.single-header-date > time { font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; font-size: 15px; }
+
+.single-header-heading { font-size: 30px; font-weight: bold; margin-bottom: 20px; }
+
+.single-body p, .single-body div:not([class]), .single-body ol, .single-body ul, .single-body li, .single-body blockquote, .single-body iframe, .single-body dl { margin-top: 30px; margin-bottom: 30px; }
+
+.single-body b, .single-body em, .single-body strong { font-weight: bold; }
+
+.single-body i:not([class]) { font-style: italic; }
+
+.single-body u { -webkit-transition-duration: underline; transition-duration: underline; }
+
+.single-body h2 { text-align: left !important; margin: 40px 0; }
+
+.single-body h3 { font-size: 20px; font-weight: bold; }
+
+.single-body iframe { max-width: 100%; margin-right: auto; margin-left: auto; }
+
+.single-body .movie { position: relative; width: 100%; padding: 56.25% 0 0; }
+
+.single-body .movie iframe { position: absolute; top: 0; right: 0; width: 100%; height: 100%; }
+
+.single-body img { display: block; max-width: 100%; margin: 0 auto; }
+
+.single-body dl:not([class]) { background-color: #ccc; padding: 20px; }
+
+.single-body dl:not([class]) > dt { margin-bottom: 10px; font-weight: bold; }
+
+.single-body a { text-decoration: underline; }
+
+.single-body a:hover { text-decoration: none; }
+
+.single-body ul li, .single-body ol li { margin: 0 0 10px; }
+
+.single-body ul li:last-child, .single-body ol li:last-child { margin-bottom: 0; }
+
+.single-body ul li { position: relative; padding-left: 20px; }
+
+.single-body ul li:before { content: ""; background-color: #000; display: block; width: 10px; height: 10px; border-radius: 50%; position: absolute; top: 7px; left: 0; }
+
+.single-body ul li ul { margin: 5px 0 5px 10px; }
+
+.single-body ol li { list-style: decimal; margin-left: 20px; }
+
+.single-body blockquote { border: 1px solid #ccc; position: relative; padding: 20px 20px 20px 60px; }
+
+.single-body blockquote:before { content: '”'; font-size: 50px; color: #ccc; position: absolute; top: 20px; left: 20px; }
+
+.single-body blockquote > p { margin: 0; }
+
+.single-body blockquote a { text-decoration: underline; }
+
+.single-body blockquote > small { margin-top: 10px; display: block; color: #ccc; }
+
+.single-body blockquote > small a { color: #ccc; }
+
+/*
+#overview
+category
+*/
+/* #styleguide category ``` <a class=";ctcategory" href=""> <img src="http://placekitten.com/300/250" height="250" width="300" alt=""> </a> */
+.category { display: inline-block; padding: 10px 20px; background-color: #000; color: #fff; }
+
+.category-a { background-color: #825794; }
+
+.category-b { background-color: #ffbb4d; }
+
+.category-c { background-color: #e74c3c; }
+
+/*
+#overview
+border
+*/
+/*
+#styleguide
+border
+```
+<hr class="border">
+*/
+.border { display: block; border-top: 1px solid #000; margin: 30px 0; }
+
+/*
+#overview
+banner
+*/
+/*
+#styleguide
+box
+```
+<div class="box"></div>
+*/
+.box { display: block; padding: 20px; background-color: #eee; min-width: 100px; min-height: 100px; }
+
+/*
+#overview
+input
+*/
+/*
+#styleguide
+input
+```
+<input class="input" type="text" placeholder="ex)...">
+```
+*/
+.input { display: block; width: 100%; border: 2px solid #95989a; background-color: #fff; font-weight: normal; line-height: 48px; padding: 10px 15px; height: 100%; }
+
+.input::-webkit-input-placeholder { font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; color: #ddd; }
+
+.input:-ms-input-placeholder { font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; color: #ddd; }
+
+.input::placeholder { font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; color: #ddd; }
+
+.input-image { display: none; }
+
+.input-contents { overflow: scroll; line-height: 1.5; }
+
+.input-submit { display: none; }
+
+.ie .input { line-height: 1; }
+
+.ie10 .input { line-height: normal; }
+
+/*
+#overview
+textarea
+*/
+/*
+#styleguide
+textarea
+```
+<textarea class="textarea" placeholder="" name="" cols="30" rows="10"></textarea>
+```
+*/
+.textarea { border: 1px solid #ccc; background-color: #fff; width: 100%; padding: 15px; height: 200px; line-height: 1.5; cursor: pointer; }
+
+/*
+#overview
+share
+*/
+/* #styleguide share ``` <div class="share l-grid"> <ul class="share-list l-grid-inner"> <li class="share-item l-grid-item"> <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div> </li> <li class="share-item l-grid-item"> <a href="https://twitter.com/share" class="twitter-share-button" data-via="LIG_J" data-lang="ja" data-size="large" data-count="vertical">ツイート</a> </li> <li class="share-item l-grid-item"> <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script> </li> <li class="share-item l-grid-item"> <a data-pocket-label="pocket" data-pocket-count="vertical" class="pocket-btn" data-lang="en"></a><script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script> </li> <li class="share-item l-grid-item"> <span><script type="text/javascript" src="//media.line.me/js/line-button.js?v=20140411" ></script><script type="text/javascript">new media_line_me.LineButton({"pc":false,"lang":"ja","type":"e"});</script></span> </li> </ul> </div> ``` */
+.share-list { font-size: 0; letter-spacing: 0; margin: -5px; text-align: center; }
+
+.share-item { vertical-align: middle; display: inline-block; padding: 5px; }
+
+.share-item > a { display: block; color: #fff; font-size: 15px; padding: 10px 20px; }
+
+.share-item > a:hover { text-decoration: none; opacity: .7; }
+
+.share-item-facebook > a { background-color: #305097; }
+
+.share-item-twitter > a { background-color: #00aced; }
+
+.share-item-line > a { background-color: #00c300; }
+
+.share-item-hatena > a { background-color: #00A4D4; }
+
+.hamburger { display: block; position: relative; width: 40px; height: 31px; }
+
+.hamburger-item { position: absolute; left: 0; width: 100%; height: 3px; background-color: #95989a; -webkit-transition: 0.25s ease-in-out; transition: 0.25s ease-in-out; }
+
+.hamburger-item:nth-of-type(1) { top: 0; }
+
+.hamburger-item:nth-of-type(2) { top: 14px; }
+
+.hamburger-item:last-of-type { top: 28px; }
+
+.hamburger.is-active .hamburger-item:nth-child(1) { -webkit-transform: translateY(14px) rotate(-45deg); -ms-transform: translateY(14px) rotate(-45deg); transform: translateY(14px) rotate(-45deg); }
+
+.hamburger.is-active .hamburger-item:nth-child(2) { opacity: 0; }
+
+.hamburger.is-active .hamburger-item:nth-child(3) { -webkit-transform: translateY(-14px) rotate(45deg); -ms-transform: translateY(-14px) rotate(45deg); transform: translateY(-14px) rotate(45deg); }
+
+.card { border: 2px solid #95989a; }
+
+.card-link { display: block; }
+
+.card-image { width: 100%; }
+
+.card-bottom { padding: 15px 20px; }
+
+.card-title { font-size: 20px; font-weight: bold; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; color: black; line-height: 1.5; letter-spacing: 0.02em; }
+
+.card-date { display: block; font-size: 15px; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; color: #95989a; letter-spacing: 0.04em; margin-top: 5px; }
+
+.archive-item { margin-top: 20px; }
+
+.archive-item:nth-of-type(1) { margin-top: 0; }
+
+.archive-button { margin-top: 40px; display: block; }
+
+.archive-admin { margin-top: 40px; margin-bottom: 60px; }
+
+.archive-admin .archive-item { padding-top: 10px; margin-top: 0; }
+
+.archive-admin .archive-item:nth-of-type(1) { border-top: 2px solid #95989a; }
+
+.copyright { display: block; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; font-size: 20px; color: #95989a; letter-spacing: 0.05em; }
+
+.single { font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; }
+
+.single-image { width: 100vw; }
+
+.single-title { font-size: 30px; color: black; font-weight: bold; line-height: 1.3; margin-top: 10px; letter-spacing: 0.03em; }
+
+.single-date { display: block; font-size: 15px; color: #95989a; margin-top: 8px; font-weight: bold; letter-spacing: 0.06em; }
+
+.single-desc { font-size: 20px; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; margin: 27px 0; font-weight: bold; line-height: 1.5; letter-spacing: 0.02em; }
+
+.page-number { font-size: 30px; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; color: #333; font-weight: bold; margin-top: 5px; margin-bottom: 30px; letter-spacing: 0.05em; }
+
+.page-number span { font-weight: bold; padding-left: 10px; }
+
+.paginate { letter-spacing: 0; font-size: 0; text-align: center; margin-top: 40px; }
+
+.paginate-prev { display: inline-block; width: 40px; height: 40px; background-color: #333; position: relative; }
+
+.paginate-prev-arrow { display: block; width: 8px; height: 8px; border: 8px solid transparent; border-right: 8px solid #fff; position: absolute; top: 50%; left: 40%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+.paginate-next { display: inline-block; width: 40px; height: 40px; background-color: #333; position: relative; margin-left: 10px; }
+
+.paginate-next-arrow { display: block; width: 8px; height: 8px; border: 8px solid transparent; border-left: 8px solid #fff; position: absolute; top: 50%; left: 60%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+.paginate-number { display: inline-block; font-size: 20px; text-align: center; padding-top: 5px; width: 40px; height: 40px; background-color: #333; color: #fff; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; vertical-align: top; margin-left: 10px; }
+
+.paginate .is-current { pointer-events: none; background-color: #fff; color: #333; border: 2px solid #333; padding-top: 3px; }
+
+.paginate .is-disable { opacity: 0.5; pointer-events: none; }
+
+.form { font-size: 20px; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; color: #95989a; }
+
+.form-file { display: block; width: 100%; height: 35px; border: 2px solid #95989a; margin-top: 10px; }
+
+.form-file-button { display: block; float: right; width: 60px; height: 100%; font-weight: bold; background: #95989a; color: #fff; font-size: 10px; text-align: center; padding-top: 7px; padding-left: 5px; }
+
+.form-title { display: block; font-weight: bold; margin-top: 30px; margin-bottom: 10px; }
+
+.form-body { height: 60px; }
+
+.form-textarea { height: 280px; }
+
+.form-button { display: block; margin-top: 20px; }
+
+.post-article { display: block; border-bottom: 2px solid #95989a; padding-bottom: 10px; }
+
+.post-article-date { font-size: 15px; color: #95989a; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; font-weight: bold; }
+
+.post-article-title { font-size: 20px; color: black; font-family: Helvetica, Arial, メイリオ, Meiryo, sans-serif; font-weight: bold; letter-spacing: 0.05em; }
+
+/* 6-utility */
+/*
+Utility
+
+This means helper class like a snippet.
+Utility should always have the prefix "u-".
+And you should not feel free to add a new Utility class.
+*/
+.u-hidden { overflow: hidden; text-indent: 120%; white-space: nowrap; }
+
+.u-clear { zoom: 1; }
+
+.u-clear:before, .u-clear:after { content: ""; display: block; }
+
+.u-clear:after { clear: both; }
+
+.u-elps { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; -ms-text-overflow: ellipsis; }
+
+.u-notap { -webkit-tap-highlight-color: transparent; }
+/*# sourceMappingURL=maps/style.css.map */
