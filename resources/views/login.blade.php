@@ -13,6 +13,11 @@
             <label for="password" class="form-title">PASSWORD</label>
             <input type="password" id="password" class="input input-text" name="password">
             <label for="submit" class="form-button">
+            @if ($errors->any())
+                <div class="alert alert-danger" style="background-color: pink; margin-bottom: 10px">
+                    <small>Error</small>
+                </div>
+            @endif
             <div class="button">
                 <p class="button-text">Login</p>
             </div>

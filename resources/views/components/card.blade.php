@@ -1,9 +1,9 @@
 <li class="archive-item">
     <article class="card">
-        <a href="#" class="card-link">
-            <img src="{{ url('storage/articles/9_1533475237.jpg')}}"" alt="" class="card-image">
+        <a href="{{ URL::route('articles.view', ['id' => $article->id]) }}" class="card-link">
+            <img src="{{ $article->image_path }}" alt="" class="card-image">
             <div class="card-bottom">
-                <h1 class="card-title">{{ $article->content }}</h1>
+                <h1 class="card-title">{{ $article->title }}</h1>
                 <time class="card-date" datetime="{{ $article->proper_time }}">
                     {{ $article->proper_time }}
                 </time>

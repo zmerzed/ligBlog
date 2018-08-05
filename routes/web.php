@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', ['uses' => 'ArticlesController@home']);
+Route::get('/', ['as' => 'home', 'uses' => 'ArticlesController@home']);
 
 Route::group(['prefix' => 'articles'], function() {
 	Route::get('/', ['as' => 'articles', 'uses' => 'ArticlesController@home']);
-	Route::get('{id}', ['as' => 'articles.detail', 'uses' => 'ArticlesController@detail']);
+	Route::get('archives', ['as' => 'articles.archive', 'uses' => 'ArticlesController@archive']);
+	Route::get('{id}', ['as' => 'articles.view', 'uses' => 'ArticlesController@view']);
 	Route::post('create', ['as' => 'articles.create', 'uses' => 'ArticlesController@create']);
 });
 

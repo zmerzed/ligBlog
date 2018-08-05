@@ -24,9 +24,9 @@
                 <div class="form-textarea">
                     <textarea name="content" id="inquiry" cols="30" rows="10" class="input input-contents">{{ $article->content }}</textarea>
                 </div>
-                 @if (session('error'))
+                @if (session('error'))
                     <div class="alert alert-danger" style="background-color: pink">
-                        <small>ERROR!</small>
+                        <small>Error</small>
                     </div>
                 @endif
                 <label for="submit" class="form-button">

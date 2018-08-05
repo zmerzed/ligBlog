@@ -26,7 +26,7 @@
                 </div>
                 @if (session('error'))
                     <div class="alert alert-danger" style="background-color: pink">
-                        <small>ERROR!</small>
+                        <small>Error</small>
                     </div>
                 @endif
                 <label for="submit" class="form-button">

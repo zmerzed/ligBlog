@@ -10,7 +10,7 @@
         <div class="archive">
             @include('components.articles', ['articles' => $articles])
         </div>
-        <a href="#" class="archive-button">
+        <a href="{{ URL::route('articles.archive') }}" class="archive-button">
             <div class="button">
                 <p class="button-text">More</p>
             </div>

@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function articles()
     {
-        return view('admin-articles')->with('articles', Article::orderBy('id', 'desc')->get());
+        return view('admin-articles')->with('articles', Article::orderBy('updated_at', 'desc')->get());
     }
 
     public function view()
@@ -104,7 +104,6 @@ class AdminController extends Controller
              return redirect()->back()->with('error', 'error occured')->withInput();
         }
 
-
         $article = new Article();
         $article->title = $this->request->title;
         $article->content = $this->request->content;
@@ -112,16 +111,10 @@ class AdminController extends Controller
         $article->save();
 
         $file = $this->request->file('image');
-        $file2 = $this->request->file('image');
-
-        // $path = storage_path() . "/app/public/articles2";
-        // $destinationPath2 = storage_path() . "/app/public/articles2/{$article->id}/";
-        // File::makeDirectory($path, $mode = 0777, true, true);
-        // $fileName = "{$article->id}_" . time() . ".jpg";
-        // $file2->move($destinationPath2,$fileName);
 
         $destinationPath = storage_path() . "/app/public/articles/";
         $fileName = "{$article->id}_" . time() . ".jpg";
+
         if ($file->move($destinationPath,$fileName))
         {
             $article->image = $fileName;

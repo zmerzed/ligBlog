@@ -19,15 +19,15 @@
     <meta property="og:site_name" content="">
     <meta property="og:type" content="blog">
     <meta property="fb:admins" content="">
-    <meta property="og:image" content="assets/images/common/ogp.png">
+    <meta property="og:image" content="/assets/images/common/ogp.png">
 
     <meta name="apple-mobile-web-app-title" content="">
 
-    <link rel="shortcut icon" href="assets/images/common/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="images/common/apple-touch-icon-precomposed.png">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="/assets/images/common/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/images/common/apple-touch-icon-precomposed.png">
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <script src="assets/lib/modernizr.js"></script>
+    <script src="/assets/lib/modernizr.js"></script>
 
 </head>
 <body id="js-body">
@@ -41,11 +41,13 @@
     <!--start header-->
     <header class="l-header  js-header">
         <div class="l-header-top u-clear">
-            <div class="l-header-logo">      
-                <div class="logo ">
-                    <img src="assets/images/logo.png" width="253" height="28" alt="BLOG"/>
+            <a href="{{ URL::route('home') }}">
+                <div class="l-header-logo">      
+                    <div class="logo">
+                        <img src="/assets/images/logo.png" width="253" height="28" alt="BLOG"/>
+                    </div>
                 </div>
-            </div>
+            </a>
             <div class="l-header-hamburger">
                 <a href="#" class="hamburger js-hamburger " >
                     <span class="hamburger-item"></span>
@@ -60,18 +62,21 @@
     <nav class="nav js-nav">
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="#" class="nav-link">TOP</a>
+                <a href="{{ URL::route('home') }}" class="nav-link">TOP</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Facebook</a>
+                <a href="https://www.facebook.com/facebook/" target="_blank" class="nav-link">Facebook</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Twitter</a>
+                <a href="https://twitter.com/twitter" target="_blank" class="nav-link">Twitter</a>
             </li>
         </ul>
     </nav>
 
-    @yield('articles');
+    @yield('articles')
+    @yield('article-view')
+    @yield('article-archive')
+    
     <!--footer ここから-->
     <footer class="l-footer ">
             <div class="l-footer-button">
@@ -87,9 +92,9 @@
     </div>
 
     <!--javascript ここから-->
-    <script src="./assets/lib/jquery-3.1.1.min.js"></script>
-    <script src="./assets/js/vendor.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <script src="/assets/lib/jquery-3.1.1.min.js"></script>
+    <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/app.js"></script>
     <!--javascript ここまで-->
     </body>
 </html>
