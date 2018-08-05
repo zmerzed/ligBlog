@@ -19,7 +19,7 @@ class Article extends Model
 
     public function getImagePathAttribute()
     {
-    	$imagePath = url('storage/') . "/{$this->image}";
+    	$imagePath = url('storage/app/public') . "/{$this->image}";
 
     	return $imagePath;
     }
