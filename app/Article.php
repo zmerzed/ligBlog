@@ -19,7 +19,8 @@ class Article extends Model
 
     public function getImagePathAttribute()
     {
-    	$imagePath = url('storage/app/public') . "/{$this->image}";
+    	$imagePath = url('storage/articles/') . "/{$this->image}";
+       // $imagePath = storage_path() . '/app/public/articles/9_1533475237.jpg';
 
     	return $imagePath;
     }

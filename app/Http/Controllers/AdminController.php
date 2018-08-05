@@ -120,7 +120,7 @@ class AdminController extends Controller
         // $fileName = "{$article->id}_" . time() . ".jpg";
         // $file2->move($destinationPath2,$fileName);
 
-        $destinationPath = storage_path() . "/app/public/";
+        $destinationPath = storage_path() . "/app/public/articles/";
         $fileName = "{$article->id}_" . time() . ".jpg";
         if ($file->move($destinationPath,$fileName))
         {
