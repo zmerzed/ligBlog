@@ -12,7 +12,7 @@ class Article extends Model
 
     public function getProperTimeAttribute()
     {
-    	$properTime = $this->created_at->format('Y-m-d');
+    	$properTime = $this->created_at->format('d M, Y');
 
     	return $properTime;
     }
