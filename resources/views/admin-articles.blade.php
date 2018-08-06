@@ -16,7 +16,7 @@
                 <li class="archive-item">
                     <a href="{{ URL::route('admin.articles.view', ['id' => $article->id]) }}" class="post-article">
                        {{--  <time class="post-article-date" datetime="2016-9-16">16 Sep, 2016</time> --}}
-                        <time class="post-article-date" datetime="2016-9-16">{{ $article->created_at }}</time>
+                        <time class="post-article-date" datetime="2016-9-16">{{ $article->proper_time }}</time>
                         <h1 class="post-article-title">{{ $article->title }}</h1>
                     </a>
                 </li>
